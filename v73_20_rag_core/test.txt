@@ -1,0 +1,7 @@
+This system is a retrieval-augmented generation system.
+
+It uses FastAPI for backend API.
+
+It uses Qdrant for vector storage.
+
+It uses Ollama for LLM inference.

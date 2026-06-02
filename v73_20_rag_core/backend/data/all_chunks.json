@@ -1,0 +1,10 @@
+[
+  {
+    "text": "This system uses FastAPI",
+    "source": "test.txt"
+  },
+  {
+    "text": "This system uses Qdrant",
+    "source": "test.txt"
+  }
+]

@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+aiohttp
+python-multipart
+qdrant-client
+ollama
+pydantic
+python-dotenv
+python-docx
+pymupdf
