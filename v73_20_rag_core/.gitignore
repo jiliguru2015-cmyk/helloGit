@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual Env
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Runtime Data
+backend/data/*.json
+backend/data/*.jsonl
+
+# Logs
+*.log
+
+# Windows
+Thumbs.db
+Desktop.ini
