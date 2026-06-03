@@ -2,7 +2,7 @@ import uuid
 
 from backend.core.embedding_store import EmbeddingStore
 from backend.core.qdrant_store import QdrantStore
-from backend.core.bm25_store import BM25Store
+from backend.core.doc_store import DocStore
 
 
 class DocumentIngestor:
@@ -12,11 +12,11 @@ class DocumentIngestor:
         self.embedder = EmbeddingStore()
         self.db = QdrantStore()
 
-        self.bm25 = BM25Store()
+        self.doc_store = DocStore()
 
     def chunk_text(
         self,
-        text: str,
+        text,
         chunk_size=500,
         overlap=100
     ):
@@ -41,8 +41,8 @@ class DocumentIngestor:
 
     async def ingest_text(
         self,
-        text: str,
-        source: str = "manual"
+        text,
+        source="manual"
     ):
 
         chunks = self.chunk_text(text)
@@ -53,15 +53,16 @@ class DocumentIngestor:
                 chunk
             )
 
+            point_id = str(
+                uuid.uuid4()
+            )
+
             payload = {
+                "id": point_id,
                 "text": chunk,
                 "source": source,
                 "chunk_id": i
             }
-
-            point_id = str(
-                uuid.uuid4()
-            )
 
             self.db.upsert(
                 _id=point_id,
@@ -69,8 +70,7 @@ class DocumentIngestor:
                 payload=payload
             )
 
-            self.bm25.add_document(
-                chunk,
+            self.doc_store.add(
                 payload
             )
 

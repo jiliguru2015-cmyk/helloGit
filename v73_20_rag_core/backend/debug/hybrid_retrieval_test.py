@@ -1,5 +1,4 @@
 import asyncio
-
 from backend.core.rag_pipeline import RAGPipeline
 
 
@@ -7,49 +6,24 @@ async def main():
 
     rag = RAGPipeline()
 
-    text = """
-FastAPI is used for backend API.
-
-Qdrant is used for vector storage.
-
-Ollama is used for local LLM inference.
-
-RAG combines retrieval and generation.
-"""
-
-    print("Ingesting document...")
-
-    count = await rag.ingest(
+    await rag.ingest(
         "doc1",
-        text
+        "FastAPI is a backend framework. Qdrant is a vector database. Ollama is a LLM runtime."
     )
 
-    print(f"Chunks inserted: {count}")
+    result = await rag.ask("What components does it use?")
 
-    print("\nSearching...\n")
+    print("\n====================")
+    print("ANSWER:")
+    print("====================")
+    print(result["answer"])
 
-    results = await rag.retrieve_with_scores(
-        "What does the system use for vector storage?",
-        top_k=5
-    )
+    print("\n====================")
+    print("CONTEXT:")
+    print("====================")
 
-    for i, r in enumerate(results):
-
-        payload = r.payload or {}
-
-        print(
-            f"[{i}] "
-            f"score={r.score:.4f}"
-        )
-
-        print(
-            payload.get(
-                "chunk",
-                ""
-            )
-        )
-
-        print("-" * 60)
+    for c in result["context"]:
+        print(c)
 
 
 if __name__ == "__main__":

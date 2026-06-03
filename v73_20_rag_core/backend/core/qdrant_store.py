@@ -19,6 +19,10 @@ class QdrantStore:
 
         self.collection_name = settings.COLLECTION_NAME
 
+    # =========================
+    # Collection Management
+    # =========================
+
     def ensure(self):
 
         collections = self.client.get_collections().collections
@@ -39,53 +43,6 @@ class QdrantStore:
             )
         )
 
-    def upsert(
-        self,
-        _id,
-        vector,
-        payload
-    ):
-
-        self.ensure()
-
-        self.client.upsert(
-            collection_name=self.collection_name,
-            points=[
-                PointStruct(
-                    id=_id,
-                    vector=vector,
-                    payload=payload
-                )
-            ]
-        )
-
-    def search(
-        self,
-        vector,
-        top_k=5
-    ):
-
-        self.ensure()
-
-        results = self.client.query_points(
-            collection_name=self.collection_name,
-            query=vector,
-            limit=top_k,
-            with_payload=True
-        )
-
-        return list(results.points)
-
-    def count(self):
-
-        self.ensure()
-
-        info = self.client.get_collection(
-            collection_name=self.collection_name
-        )
-
-        return info.points_count
-
     def reset(self):
 
         collections = self.client.get_collections().collections
@@ -102,3 +59,74 @@ class QdrantStore:
             )
 
         self.ensure()
+
+    # =========================
+    # Write
+    # =========================
+
+    def upsert(
+        self,
+        _id,
+        vector,
+        payload
+    ):
+
+        self.ensure()
+
+        self.client.upsert(
+            collection_name=self.collection_name,
+            points=[
+                PointStruct(
+                    id=str(_id),
+                    vector=vector,
+                    payload=payload
+                )
+            ]
+        )
+
+    # =========================
+    # Search
+    # =========================
+
+    def search(
+        self,
+        vector,
+        top_k=5
+    ):
+
+        self.ensure()
+
+        results = self.client.query_points(
+            collection_name=self.collection_name,
+            query=vector,
+            limit=top_k,
+            with_payload=True
+        )
+
+        # 兼容不同版本 qdrant-client
+        if hasattr(results, "points"):
+            return list(results.points)
+
+        return list(results)
+
+    # =========================
+    # Stats
+    # =========================
+
+    def count(self):
+
+        self.ensure()
+
+        info = self.client.get_collection(
+            collection_name=self.collection_name
+        )
+
+        return info.points_count
+
+    def info(self):
+
+        self.ensure()
+
+        return self.client.get_collection(
+            collection_name=self.collection_name
+        )

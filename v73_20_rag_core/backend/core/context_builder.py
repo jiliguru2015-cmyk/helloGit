@@ -1,23 +1,28 @@
 class ContextBuilder:
 
-    def build(
-        self,
-        results
-    ):
+    def __init__(self, max_chunks=5):
+        self.max_chunks = max_chunks
 
-        chunks = []
+    def build(self, docs):
 
-        for r in results:
+        context_chunks = []
+        seen = set()
 
-            payload = r.payload or {}
+        for doc in docs:
 
-            text = (
-                payload.get("text")
-                or payload.get("chunk")
-                or ""
-            )
+            text = doc.get("text")
 
-            if text:
-                chunks.append(text)
+            if not text:
+                continue
 
-        return "\n\n".join(chunks)
+            if text in seen:
+                continue
+
+            seen.add(text)
+
+            context_chunks.append(text)
+
+            if len(context_chunks) >= self.max_chunks:
+                break
+
+        return "\n\n".join(context_chunks)

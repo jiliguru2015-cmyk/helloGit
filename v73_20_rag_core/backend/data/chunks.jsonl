@@ -1,0 +1,5 @@
+{"id": "9d8ace1e-f955-49b3-ac09-0071f299969d", "text": "This system is a retrieval-augmented generation system.\n\nIt uses FastAPI for backend API.\n\nIt uses Qdrant for vector storage.\n\nIt uses Ollama for LLM inference.", "source": "test.txt", "chunk_id": 0}
+{"text": "FastAPI is a backend framework. Qdrant is a vector database. Ollama is a LLM runtime.", "source": "doc1", "chunk_id": 0}
+{"id": "778b6625-c4c6-40fa-aac4-41e19ad006a4", "text": "This system is a retrieval-augmented generation system.\n\nIt uses FastAPI for backend API.\n\nIt uses Qdrant for vector storage.\n\nIt uses Ollama for LLM inference.", "source": "test.txt", "chunk_id": 0}
+{"id": "0c7032df-a191-4111-9fc6-2a6f7af42fde", "text": "This system is a retrieval-augmented generation system.\n\nIt uses FastAPI for backend API.\n\nIt uses Qdrant for vector storage.\n\nIt uses Ollama for LLM inference.", "source": "test.txt", "chunk_id": 0}
+{"text": "FastAPI is a backend framework. Qdrant is a vector database. Ollama is a LLM runtime.", "source": "doc1", "chunk_id": 0}

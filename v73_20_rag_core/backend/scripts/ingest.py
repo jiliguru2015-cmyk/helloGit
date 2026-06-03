@@ -2,7 +2,7 @@ import asyncio
 import sys
 from pathlib import Path
 
-from backend.core.document_ingest_pipeline import DocumentIngestPipeline
+from backend.core.document_ingest import DocumentIngestor
 
 
 async def ingest_file(file_path: str):
@@ -15,15 +15,16 @@ async def ingest_file(file_path: str):
 
     text = path.read_text(encoding="utf-8", errors="ignore")
 
-    pipeline = DocumentIngestPipeline()
+    # 🚨 关键修复：用正确类
+    ingestor = DocumentIngestor()
 
-    count = await pipeline.ingest_text(
+    count = await ingestor.ingest_text(
         text=text,
         source=path.name
     )
 
     print("\n====================")
-    print("✅ INGEST COMPLETE (V73.26)")
+    print("✅ INGEST COMPLETE (V73.28 FIXED)")
     print("====================")
     print(f"file   : {path.name}")
     print(f"chunks : {count}")
