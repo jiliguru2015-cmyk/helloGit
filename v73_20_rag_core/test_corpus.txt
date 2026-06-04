@@ -1,0 +1,19 @@
+FastAPI is a Python backend framework.
+
+Qdrant stores vector embeddings for retrieval systems.
+
+Ollama serves local language models.
+
+Redis is commonly used for caching.
+
+PostgreSQL stores structured metadata.
+
+LangChain provides orchestration utilities.
+
+SentenceTransformers generate embeddings.
+
+BM25 is a sparse retrieval algorithm.
+
+Reciprocal Rank Fusion combines retrieval rankings.
+
+Cross Encoder reranking improves retrieval quality.

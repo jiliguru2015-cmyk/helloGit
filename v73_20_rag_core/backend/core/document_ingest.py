@@ -3,6 +3,7 @@ import uuid
 from backend.core.embedding_store import EmbeddingStore
 from backend.core.qdrant_store import QdrantStore
 from backend.core.doc_store import DocStore
+from backend.core.chunker import TextChunker
 
 
 class DocumentIngestor:
@@ -11,33 +12,10 @@ class DocumentIngestor:
 
         self.embedder = EmbeddingStore()
         self.db = QdrantStore()
-
         self.doc_store = DocStore()
 
-    def chunk_text(
-        self,
-        text,
-        chunk_size=500,
-        overlap=100
-    ):
-
-        chunks = []
-
-        start = 0
-
-        while start < len(text):
-
-            end = start + chunk_size
-
-            chunks.append(
-                text[start:end]
-            )
-
-            start += (
-                chunk_size - overlap
-            )
-
-        return chunks
+        # 使用统一 Chunker
+        self.chunker = TextChunker()
 
     async def ingest_text(
         self,
@@ -45,7 +23,7 @@ class DocumentIngestor:
         source="manual"
     ):
 
-        chunks = self.chunk_text(text)
+        chunks = self.chunker.chunk(text)
 
         for i, chunk in enumerate(chunks):
 

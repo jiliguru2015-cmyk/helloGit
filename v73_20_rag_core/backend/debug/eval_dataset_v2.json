@@ -1,0 +1,42 @@
+[
+  {
+    "query": "Which vector database is used?",
+    "expected": ["Qdrant"]
+  },
+  {
+    "query": "What backend framework powers the API?",
+    "expected": ["FastAPI"]
+  },
+  {
+    "query": "Which runtime serves language models?",
+    "expected": ["Ollama"]
+  },
+  {
+    "query": "What tool is used for caching?",
+    "expected": ["Redis"]
+  },
+  {
+    "query": "What database stores metadata?",
+    "expected": ["PostgreSQL"]
+  },
+  {
+    "query": "Which library provides orchestration?",
+    "expected": ["LangChain"]
+  },
+  {
+    "query": "Which model generates embeddings?",
+    "expected": ["SentenceTransformers"]
+  },
+  {
+    "query": "What sparse retrieval algorithm is used?",
+    "expected": ["BM25"]
+  },
+  {
+    "query": "What fusion method combines rankings?",
+    "expected": ["Reciprocal Rank Fusion"]
+  },
+  {
+    "query": "What improves retrieval quality?",
+    "expected": ["Cross Encoder"]
+  }
+]

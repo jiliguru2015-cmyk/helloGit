@@ -1,5 +1,10 @@
-{"id": "9d8ace1e-f955-49b3-ac09-0071f299969d", "text": "This system is a retrieval-augmented generation system.\n\nIt uses FastAPI for backend API.\n\nIt uses Qdrant for vector storage.\n\nIt uses Ollama for LLM inference.", "source": "test.txt", "chunk_id": 0}
-{"text": "FastAPI is a backend framework. Qdrant is a vector database. Ollama is a LLM runtime.", "source": "doc1", "chunk_id": 0}
-{"id": "778b6625-c4c6-40fa-aac4-41e19ad006a4", "text": "This system is a retrieval-augmented generation system.\n\nIt uses FastAPI for backend API.\n\nIt uses Qdrant for vector storage.\n\nIt uses Ollama for LLM inference.", "source": "test.txt", "chunk_id": 0}
-{"id": "0c7032df-a191-4111-9fc6-2a6f7af42fde", "text": "This system is a retrieval-augmented generation system.\n\nIt uses FastAPI for backend API.\n\nIt uses Qdrant for vector storage.\n\nIt uses Ollama for LLM inference.", "source": "test.txt", "chunk_id": 0}
-{"text": "FastAPI is a backend framework. Qdrant is a vector database. Ollama is a LLM runtime.", "source": "doc1", "chunk_id": 0}
+{"id": "66ff8b33-d423-42b4-a137-19bf2fb36b7f", "text": "FastAPI is a Python backend framework.", "source": "test_corpus.txt", "chunk_id": 0}
+{"id": "77d6b7af-5dd3-4114-b156-81602d627bc3", "text": "Qdrant stores vector embeddings for retrieval systems.", "source": "test_corpus.txt", "chunk_id": 1}
+{"id": "49354a27-87ba-43a8-9d10-df937778716b", "text": "Ollama serves local language models.", "source": "test_corpus.txt", "chunk_id": 2}
+{"id": "dda0f68c-a8ea-4179-9567-63bffe615aca", "text": "Redis is commonly used for caching.", "source": "test_corpus.txt", "chunk_id": 3}
+{"id": "8d0b3bb1-57e7-4dae-a23a-7e8af8d1ad5a", "text": "PostgreSQL stores structured metadata.", "source": "test_corpus.txt", "chunk_id": 4}
+{"id": "e8eeb153-56c9-43f7-b529-013cc5c63d31", "text": "LangChain provides orchestration utilities.", "source": "test_corpus.txt", "chunk_id": 5}
+{"id": "bd596897-b2d5-4ea5-a4bf-e69620fe6582", "text": "SentenceTransformers generate embeddings.", "source": "test_corpus.txt", "chunk_id": 6}
+{"id": "1f47a467-290e-4476-be64-3facdb1b11d9", "text": "BM25 is a sparse retrieval algorithm.", "source": "test_corpus.txt", "chunk_id": 7}
+{"id": "35ffbf26-d770-4777-98f6-32af6736bf0c", "text": "Reciprocal Rank Fusion combines retrieval rankings.", "source": "test_corpus.txt", "chunk_id": 8}
+{"id": "9578590f-e99b-4c88-8b03-a41c89c4ab22", "text": "Cross Encoder reranking improves retrieval quality.", "source": "test_corpus.txt", "chunk_id": 9}

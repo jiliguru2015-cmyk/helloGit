@@ -1,0 +1,22 @@
+[
+  {
+    "query": "What vector database does it use?",
+    "expected": [
+      "Qdrant"
+    ]
+  },
+
+  {
+    "query": "What backend framework is used?",
+    "expected": [
+      "FastAPI"
+    ]
+  },
+
+  {
+    "query": "What LLM runtime does it use?",
+    "expected": [
+      "Ollama"
+    ]
+  }
+]
